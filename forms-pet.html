@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro do Pet</title>
+  <link rel="stylesheet" href="pet.css">
+</head>
+<body>
+  <div class="form-container">
+    <h1>🐾 Cadastro do Pet 🐾</h1>
+    <form>
+      <label for="foto">Foto do Pet:</label>
+      <input type="file" id="foto" name="foto" accept="image/*">
+
+      <label for="nome">Nome do Pet:</label>
+      <input type="text" id="nome" name="nome" placeholder="Ex: Luna" required>
+
+      <label for="raca">Raça:</label>
+      <input type="text" id="raca" name="raca" placeholder="Ex: Shih-Tzu" required>
+
+      <label for="porte">Porte:</label>
+      <select id="porte" name="porte" required>
+        <option value="">Selecione</option>
+        <option value="pequeno">Pequeno</option>
+        <option value="medio">Médio</option>
+        <option value="grande">Grande</option>
+      </select>
+
+      <label for="sexo">Sexo:</label>
+      <select id="sexo" name="sexo" required>
+        <option value="">Selecione</option>
+        <option value="macho">Macho</option>
+        <option value="femea">Fêmea</option>
+      </select>
+
+      <label for="comorbidades">Comorbidades:</label>
+      <textarea id="comorbidades" name="comorbidades" rows="4" placeholder="Ex: Alergia, problemas cardíacos..."></textarea>
+
+      <button type="submit">Cadastrar 🐶</button>
+    </form>
+  </div>
+</body>
+</html>

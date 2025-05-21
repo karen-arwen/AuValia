@@ -1,5 +1,7 @@
 body {
-  font-family: 'Arial', sans-serif;
+  /*font-family: 'Arial', sans-serif;*/
+  
+  font-family: 'Quicksand', sans-serif;
   background-color: #f6f6f6;
   margin: 0;
   padding: 0;
@@ -8,10 +10,18 @@ body {
   min-height: 100vh;
 }
 
+:root {
+  --cor-primaria: #ff7300;
+  --cor-secundaria: #ffaf54;
+  --cor-destaque: #58a2f7;
+  --cor-fundo: #ffffff;
+  --cor-texto: #000000;
+}
+
 .topo-site {
-  background-color: #ffffff;
+  background-color: var(--cor-fundo);
   padding: 20px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 6px rgba(255, 39, 39, 0.1);
 }
 
 .logo-menu {
@@ -25,21 +35,38 @@ body {
 .logo {
   height: 50px;
 }
+.logo-nome {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nome-auvalia {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #FFA726;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.nome-auvalia span {
+  color: #FFA726; /* Azul para destacar o "Valia", se quiser */
+}
 
 .campo-pesquisa {
   flex: 1;
   max-width: 600px;
   padding: 12px 20px;
   border-radius: 25px;
-  border: 2px solid #ffa726;
+  border: 2px solid var(--cor-destaque);
+  background-color: #fffafc;
   font-size: 16px;
-  background-color: #fff8f0;
 }
 
 .menu a {
   margin: 0 10px;
   text-decoration: none;
-  color: #555;
+  color: #000000;
   font-weight: 600;
 }
 
@@ -65,7 +92,7 @@ body {
 }
 
 .btn-mensagem {
-  background-color: #ffa726;
+  background-color: var(--cor-primaria);
   color: white;
   padding: 10px 20px;
   border: none;
@@ -76,7 +103,7 @@ body {
 }
 
 .btn-mensagem:hover {
-  background-color: #fb8c00;
+  background-color: #81adff;
 }
 
 .container {
@@ -95,12 +122,13 @@ body {
 }
 
 .pet-card {
-  background-color: #e6f8ff;
-  padding: 20px;
-  border-radius: 16px;
+  background-color: #fffafc;
+  border: 2px dashed var(--cor-destaque);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  transition: transform 0.2s ease;
   width: 200px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .pet-card img {
@@ -113,16 +141,24 @@ body {
 .pet-card button {
   margin-top: 10px;
   padding: 10px;
-  background-color: #ffcc80;
+  background-color: var(--cor-secundaria);
+  color: #ffffff;
   border: none;
-  border-radius: 8px;
+  font-size: 14px;
+  border-radius: 12px;
   cursor: pointer;
   font-weight: bold;
   transition: background 0.3s;
 }
 
 .pet-card button:hover {
-  background-color: #ffa726;
+  background-color: var(--cor-primaria);
+  color: white;
+  transform: scale(1.03);
+}
+
+.pet-card h3::before {
+  content: "🐾 ";
 }
 
 .historico {
@@ -151,6 +187,10 @@ body {
   object-fit: cover;
 }
 
+.estabelecimento strong::before {
+  content: "🏪 ";
+}
+
 .avaliacao {
   color: gold;
   margin-top: 4px;
@@ -160,39 +200,49 @@ body {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background-color: #ff9800;
+  background-color: var(--cor-secundaria);
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  font-size: 36px;
+  border: 2px dashed white;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 32px;
+  font-weight: bold;
   color: white;
   text-align: center;
   line-height: 60px;
   cursor: pointer;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
   transition: background 0.3s;
+  animation: pulse 2s infinite ease-in-out;
+  
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
 }
 
 .add-button:hover {
   background-color: #fb8c00;
 }
 
-.rodape {
+.footer  {
   text-align: center;
   font-size: 14px;
   background-color: #fff3e0;
   padding: 20px;
-  color: #0000;
+  color: #000000;
   margin-top: auto;
 }
 
-.rodape a {
+.footer  a {
   color: #ffa726;
   text-decoration: none;
   font-weight: 500;
 }
 
-.rodape a:hover {
+.footer  a:hover {
   text-decoration: underline;
 }
 
@@ -273,10 +323,5 @@ body {
     width: 90%;
     margin-top: 20px;
   }
-}
-
-/* Menu padrão escondido por padrão no mobile */
-.hamburger {
-  display: none;
 }
 

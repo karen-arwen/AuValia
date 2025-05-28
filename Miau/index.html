@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html class="">
+<head>
+  <!-- Google Fonts: Montserrat for modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="css/style.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/modal.css">
+  <!-- FontAwesome -->
+  <script crossorigin="anonymous" referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <!-- Tailwind (opcional, se usado no projeto) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Pet Shop - AuValia</title>
+</head>
+<body class="text-base-content bg-gradient-to-br from-[#f9fafb] to-[#e1e7ee]">
+  <!-- Header Section -->
+  <header class="bg-white/90 shadow-lg sticky top-0 z-10 px-6 py-4 rounded-b-2xl fade-in" id="header">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="flex items-center">
+        <div class="w-12 h-12 bg-[#f7943e] rounded-full flex items-center justify-center mr-3 overflow-hidden shadow-lg">
+          <img alt="Logo AuValia" src="imagens/Au2.png" style="width: 56px; height: 56px; object-fit: cover; border-radius: 9999px; transform: translate(-2px, -1px);"/>
+        </div>
+        <span class="text-[#a15c2f] font-extrabold text-2xl tracking-tight drop-shadow-sm">
+          AuValia
+        </span>
+      </div>
+      <div class="flex-1 mx-8 relative">
+        <i class="fa-solid fa-search absolute left-3 top-3 text-gray-400 text-base"></i>
+        <input class="w-full bg-[#f3f4f6] rounded-full py-2.5 pl-10 pr-4 text-base outline-none focus:ring-2 focus:ring-[#5e9ed6] text-gray-700 shadow-sm border border-[#e1e7ee]" placeholder="Buscar pet shops, serviços..." type="text"/>
+      </div>
+      <nav class="flex space-x-8 text-gray-700 text-base font-semibold">
+        <a class="hover:text-[#f7943e] transition-colors" href="#">Início</a>
+        <a class="hover:text-[#f7943e] transition-colors" href="#">Perfil</a>
+        <a class="hover:text-[#f7943e] transition-colors" href="#">Mensagens</a>
+      </nav>
+    </div>
+  </header>
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 pt-4 min-h-[calc(100vh-130px)]" id="pet-shop-profile">
+    <!-- Pet Shop Header -->
+    <section class="bg-white rounded-lg shadow-sm p-4 mb-4" id="shop-header">
+      <div class="flex items-start">
+        <div class="w-24 h-24 bg-[#f7e6a6] rounded-lg flex items-center justify-center mr-4">
+          <img alt="Logo Pet Shop" class="w-20 h-20 object-contain" src="imagens/Estabelecimento.png"/>
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center justify-between">
+            <div>
+              <h1 class="text-2xl font-bold text-[#a15c2f]">PetFeliz</h1>
+              <div class="flex items-center mt-1">
+                <span class="bg-green-100 text-green-800 text-xs font-medium px-2 py-0.5 rounded-full mr-2">
+                  <i class="fa-solid fa-circle text-green-500 text-xs mr-1"></i>
+                  Aberto
+                </span>
+                <div class="flex text-yellow-400">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star-half-stroke"></i>
+                  <span class="text-gray-500 text-sm ml-1">(128)</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex">
+              <button class="bg-[#f7943e] hover:bg-[#e88632] text-white px-4 py-2 rounded-md flex items-center mr-2">
+                <i class="fa-solid fa-comment-dots mr-2"></i>
+                Enviar mensagem
+              </button>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-4 mt-4">
+            <div class="flex items-center">
+              <i class="fa-solid fa-location-dot text-[#5e9ed6] mr-2"></i>
+              <span class="text-gray-600 text-sm">Rua das Acácias, 123 - Centro, Indaiatuba/SP</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fa-solid fa-phone text-[#5e9ed6] mr-2"></i>
+              <span class="text-gray-600 text-sm">(19) 3875-1234</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fa-solid fa-clock text-[#5e9ed6] mr-2"></i>
+              <span class="text-gray-600 text-sm">Seg-Sáb: 8h às 19h | Dom: Fechado</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fa-solid fa-envelope text-[#5e9ed6] mr-2"></i>
+              <span class="text-gray-600 text-sm">contato@petfeliz.com.br</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Services Overview -->
+    <section class="bg-[#e1e7ee] bg-opacity-60 rounded-2xl p-6 mb-6 fade-in shadow-md" id="services-overview">
+      <h2 class="text-xl font-extrabold text-[#a15c2f] mb-4 tracking-tight">Serviços Oferecidos</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+        <div class="bg-white rounded-xl p-4 text-center shadow card-hover">
+          <div class="w-14 h-14 service-icon rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-shower text-[#5e9ed6] text-2xl"></i>
+          </div>
+          <span class="text-base font-semibold text-[#a15c2f]">Banho</span>
+        </div>
+        <div class="bg-white rounded-xl p-4 text-center shadow card-hover">
+          <div class="w-14 h-14 service-icon rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-scissors text-[#5e9ed6] text-2xl"></i>
+          </div>
+          <span class="text-base font-semibold text-[#a15c2f]">Tosa</span>
+        </div>
+        <div class="bg-white rounded-xl p-4 text-center shadow card-hover">
+          <div class="w-14 h-14 service-icon rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-syringe text-[#5e9ed6] text-2xl"></i>
+          </div>
+          <span class="text-base font-semibold text-[#a15c2f]">Vacinação</span>
+        </div>
+        <div class="bg-white rounded-xl p-4 text-center shadow card-hover">
+          <div class="w-14 h-14 service-icon rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-stethoscope text-[#5e9ed6] text-2xl"></i>
+          </div>
+          <span class="text-base font-semibold text-[#a15c2f]">Consultas</span>
+        </div>
+        <div class="bg-white rounded-xl p-4 text-center shadow card-hover">
+          <div class="w-14 h-14 service-icon rounded-full flex items-center justify-center mx-auto mb-3">
+            <i class="fa-solid fa-dog text-[#5e9ed6] text-2xl"></i>
+          </div>
+          <span class="text-base font-semibold text-[#a15c2f]">Adestramento</span>
+        </div>
+      </div>
+    </section>
+    <!-- Services Details -->
+    <section class="relative mb-4 fade-in" id="services-details">
+      <button class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full w-8 h-8 flex items-center justify-center hover:bg-[#f7943e] hover:text-white transition-colors" id="carousel-left">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <div id="carousel-wrapper" class="relative px-8 overflow-hidden" style="width: 100%;">
+        <div id="carousel-track" class="flex gap-4 transition-transform duration-500" style="overflow: visible;">
+
+        <!-- Serviço 1 -->
+        <div class="min-w-[440px] max-w-[440px] bg-white rounded-lg shadow-sm overflow-hidden card-hover" id="service-1">
+          <div class="bg-[#f7e6a6] bg-opacity-50 p-3">
+            <h3 class="font-medium text-[#a15c2f]">Banho Completo</h3>
+            <span class="text-xs bg-[#b6e2d3] px-2 py-0.5 rounded-full text-[#5e9ed6]">Higiene</span>
+          </div>
+          <div class="p-3">
+            <p class="text-sm text-gray-600 mb-2">Banho com shampoo especial, secagem cuidadosa, escovação e aplicação de perfume.</p>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[#a15c2f] font-bold">R$ 45,00</span>
+              <span class="text-xs text-gray-500"><i class="fa-regular fa-clock mr-1"></i>60 min</span>
+            </div>
+            <button class="w-full bg-[#f7943e] hover:bg-[#e88632] text-white py-1.5 rounded text-sm button-press">Agendar Serviço</button>
+          </div>
+        </div>
+        <!-- Serviço 2 -->
+        <div class="min-w-[440px] max-w-[440px] bg-white rounded-lg shadow-sm overflow-hidden card-hover" id="service-2">
+          <div class="bg-[#f7e6a6] bg-opacity-50 p-3">
+            <h3 class="font-medium text-[#a15c2f]">Tosa Higiênica</h3>
+            <span class="text-xs bg-[#b6e2d3] px-2 py-0.5 rounded-full text-[#5e9ed6]">Estética</span>
+          </div>
+          <div class="p-3">
+            <p class="text-sm text-gray-600 mb-2">Tosa higiênica nas regiões íntimas, patas e face, garantindo conforto e bem-estar ao pet.</p>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[#a15c2f] font-bold">R$ 35,00</span>
+              <span class="text-xs text-gray-500"><i class="fa-regular fa-clock mr-1"></i>30 min</span>
+            </div>
+            <button class="w-full bg-[#f7943e] hover:bg-[#e88632] text-white py-1.5 rounded text-sm button-press">Agendar Serviço</button>
+          </div>
+        </div>
+        <!-- Serviço 3 -->
+        <div class="min-w-[440px] max-w-[440px] bg-white rounded-lg shadow-sm overflow-hidden card-hover" id="service-3">
+          <div class="bg-[#f7e6a6] bg-opacity-50 p-3">
+            <h3 class="font-medium text-[#a15c2f]">Consulta Veterinária</h3>
+            <span class="text-xs bg-[#b6e2d3] px-2 py-0.5 rounded-full text-[#5e9ed6]">Saúde</span>
+          </div>
+          <div class="p-3">
+            <p class="text-sm text-gray-600 mb-2">Avaliação completa da saúde do seu pet com veterinário especializado.</p>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[#a15c2f] font-bold">R$ 120,00</span>
+              <span class="text-xs text-gray-500"><i class="fa-regular fa-clock mr-1"></i>45 min</span>
+            </div>
+            <button class="w-full bg-[#f7943e] hover:bg-[#e88632] text-white py-1.5 rounded text-sm button-press">Agendar Serviço</button>
+          </div>
+        </div>
+        <!-- Serviço 4: Vacinação -->
+        <div class="min-w-[440px] max-w-[440px] bg-white rounded-lg shadow-sm overflow-hidden card-hover" id="service-4">
+          <div class="bg-[#f7e6a6] bg-opacity-50 p-3">
+            <h3 class="font-medium text-[#a15c2f]">Vacinação</h3>
+            <span class="text-xs bg-[#b6e2d3] px-2 py-0.5 rounded-full text-[#5e9ed6]">Saúde</span>
+          </div>
+          <div class="p-3">
+            <p class="text-sm text-gray-600 mb-2">Aplicação de vacinas essenciais para cães e gatos, com acompanhamento veterinário.</p>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[#a15c2f] font-bold">R$ 80,00</span>
+              <span class="text-xs text-gray-500"><i class="fa-regular fa-clock mr-1"></i>20 min</span>
+            </div>
+            <button class="w-full bg-[#f7943e] hover:bg-[#e88632] text-white py-1.5 rounded text-sm button-press">Agendar Serviço</button>
+          </div>
+        </div>
+        <!-- Serviço 5: Adestramento -->
+        <div class="min-w-[440px] max-w-[440px] bg-white rounded-lg shadow-sm overflow-hidden card-hover" id="service-5">
+          <div class="bg-[#f7e6a6] bg-opacity-50 p-3">
+            <h3 class="font-medium text-[#a15c2f]">Adestramento</h3>
+            <span class="text-xs bg-[#b6e2d3] px-2 py-0.5 rounded-full text-[#5e9ed6]">Comportamento</span>
+          </div>
+          <div class="p-3">
+            <p class="text-sm text-gray-600 mb-2">Sessões de adestramento para melhorar o comportamento e obediência do seu pet.</p>
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-[#a15c2f] font-bold">R$ 100,00</span>
+              <span class="text-xs text-gray-500"><i class="fa-regular fa-clock mr-1"></i>50 min</span>
+            </div>
+            <button class="w-full bg-[#f7943e] hover:bg-[#e88632] text-white py-1.5 rounded text-sm button-press">Agendar Serviço</button>
+          </div>
+        </div>
+      </div>
+      <button class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full w-8 h-8 flex items-center justify-center hover:bg-[#f7943e] hover:text-white transition-colors" id="carousel-right">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </section>
+    <!-- Reviews Section -->
+    <section class="bg-white rounded-2xl shadow-md p-6 fade-in" id="reviews">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-xl font-extrabold text-[#374151] tracking-tight">Avaliações</h2>
+        <div class="flex items-center">
+          <div class="flex text-yellow-400 mr-2">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <span class="text-gray-700 font-bold text-lg">4.5</span>
+          <span class="text-gray-500 text-base ml-2">(128 avaliações)</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-[#e1e7ee] bg-opacity-40 p-4 rounded-xl card-hover shadow relative">
+          <!-- Botão Útil -->
+          <button class="absolute top-3 right-3 flex items-center gap-1 text-[#5e9ed6] bg-white/80 hover:bg-[#e1e7ee] border border-[#e1e7ee] rounded-full px-3 py-1 text-xs font-semibold shadow-sm transition-colors group" onclick="handleUsefulClick(this)">
+            <i class="fa-regular fa-thumbs-up group-hover:text-[#f7943e]"></i>
+            Útil <span class="useful-count">0</span>
+          </button>
+          <div class="flex items-center mb-3">
+            <img alt="Marco Chuveiros" class="w-10 h-10 rounded-full mr-3 review-avatar" src="imagens/Marco.jpg"/>
+            <div>
+              <p class="font-bold text-[#a15c2f]">Marco Chuveiros</p>
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-base text-gray-700 mb-2">Atendimento excelente! Meu cachorro adorou o banho e a tosa ficou perfeita.</p>
+          <p class="text-xs text-gray-500">12/04/2025</p>
+        </div>
+        <div class="bg-[#e1e7ee] bg-opacity-40 p-4 rounded-xl card-hover shadow relative">
+          <!-- Botão Útil -->
+          <button class="absolute top-3 right-3 flex items-center gap-1 text-[#5e9ed6] bg-white/80 hover:bg-[#e1e7ee] border border-[#e1e7ee] rounded-full px-3 py-1 text-xs font-semibold shadow-sm transition-colors group" onclick="handleUsefulClick(this)">
+            <i class="fa-regular fa-thumbs-up group-hover:text-[#f7943e]"></i>
+            Útil <span class="useful-count">0</span>
+          </button>
+          <div class="flex items-center mb-3">
+            <img alt="Sabrina Carpinteira" class="w-10 h-10 rounded-full mr-3 review-avatar" src="imagens/Sabrina.jpg"/>
+            <div>
+              <p class="font-bold text-[#a15c2f]">Sabrina Carpinteira</p>
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-base text-gray-700 mb-2">Veterinários muito atenciosos. Minha gata foi muito bem cuidada durante a consulta.</p>
+          <p class="text-xs text-gray-500">28/03/2025</p>
+        </div>
+        <div class="bg-[#e1e7ee] bg-opacity-40 p-4 rounded-xl card-hover shadow relative">
+          <!-- Botão Útil -->
+          <button class="absolute top-3 right-3 flex items-center gap-1 text-[#5e9ed6] bg-white/80 hover:bg-[#e1e7ee] border border-[#e1e7ee] rounded-full px-3 py-1 text-xs font-semibold shadow-sm transition-colors group" onclick="handleUsefulClick(this)">
+            <i class="fa-regular fa-thumbs-up group-hover:text-[#f7943e]"></i>
+            Útil <span class="useful-count">0</span>
+          </button>
+          <div class="flex items-center mb-3">
+            <img alt="Chico Moedas" class="w-10 h-10 rounded-full mr-3 review-avatar" src="imagens/Chico.webp"/>
+            <div>
+              <p class="font-bold text-[#a15c2f]">Chico Moedas</p>
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-regular fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-base text-gray-700 mb-2">Preço justo e serviço de qualidade. O adestramento já está mostrando resultados!</p>
+          <p class="text-xs text-gray-500">05/04/2025</p>
+        </div>
+      </div>
+      <div class="flex justify-center mt-6">
+        <button class="text-[#5e9ed6] text-base font-semibold hover:underline transition-colors" id="see-more-comments-btn">
+          Ver mais comentários
+        </button>
+      </div>
+    </section>
+  </main>
+  <!-- Modal de Comentários Avançado -->
+  <div id="modal-customer-comments" class="fixed inset-0 flex items-center justify-center z-50 hidden" aria-modal="true" role="dialog">
+    <div class="relative bg-white rounded-2xl shadow-2xl max-w-6xl w-full md:w-[90vw] lg:w-[1100px] min-h-[600px] flex overflow-hidden">
+      <!-- Botão fechar -->
+      <button id="close-modal-btn" class="absolute top-5 right-6 text-gray-400 hover:text-[#f7943e] transition-colors text-2xl z-20 focus:outline-none">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <!-- Área principal de comentários -->
+      <main id="comments-main" class="flex-1 bg-[#f9fafb] px-8 py-8 flex flex-col h-[650px] overflow-y-auto gap-y-6">
+        <header id="comments-header" class="mb-4">
+          <h2 class="text-2xl font-semibold text-gray-700">Comentários de Clientes</h2>
+          <p class="text-gray-500 text-base mt-1">Veja o que nossos clientes estão dizendo sobre nossos serviços!</p>
+        </header>
+        <section id="comments-list" class="flex flex-col gap-y-5">
+          <!-- Novo comentário: Karen -->
+          <div class="comment-card flex flex-col md:flex-row gap-4 p-5">
+            <img alt="Avatar" class="w-14 h-14 rounded-full object-cover shadow" src="imagens/Karen Karate Judo Sumo Samurai"/>
+            <div class="flex-1">
+              <div class="flex items-center mb-1">
+                <span class="font-bold text-[#a15c2f] mr-2">Karen</span>
+                <div class="flex text-yellow-400 text-sm">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
+              </div>
+              <p class="text-base text-gray-700 mb-2">Minha cachorra ficou linda após o banho e tosa! Atendimento carinhoso e ambiente limpo. Recomendo muito!</p>
+              <img src="imagens/Azul1.jpeg" alt="Foto da cachorra da Karen" class="rounded-xl mt-2 max-w-xs shadow border border-[#e1e7ee]">
+              <div class="flex items-center mt-2">
+                <button class="util-btn"><i class="fa-regular fa-thumbs-up"></i> Útil <span class="useful-count">0</span></button>
+                <span class="text-xs text-gray-500 ml-4">19/05/2025</span>
+              </div>
+            </div>
+          </div>
+          <!-- Novo comentário: Bia -->
+          <div class="comment-card flex flex-col md:flex-row gap-4 p-5">
+            <img alt="Avatar" class="w-14 h-14 rounded-full object-cover shadow" src="imagens/Bia Nissan Honda Mitsubishi Subaru"/>
+            <div class="flex-1">
+              <div class="flex items-center mb-1">
+                <span class="font-bold text-[#a15c2f] mr-2">Bia</span>
+                <div class="flex text-yellow-400 text-sm">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
+              </div>
+              <p class="text-base text-gray-700 mb-2">Levei minha cachorra para consulta e adorei o cuidado da equipe. Ela foi tratada com muito carinho!</p>
+              <img src="imagens/Azul2.jpeg" alt="Foto da cachorra da Bia" class="rounded-xl mt-2 max-w-xs shadow border border-[#e1e7ee]">
+              <div class="flex items-center mt-2">
+                <button class="util-btn"><i class="fa-regular fa-thumbs-up"></i> Útil <span class="useful-count">0</span></button>
+                <span class="text-xs text-gray-500 ml-4">18/05/2025</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- Painel lateral de filtros -->
+      <aside id="comments-filter-panel" class="w-full max-w-[340px] bg-white shadow-lg rounded-l-none rounded-r-2xl flex flex-col h-full border-l border-[#e1e7ee]">
+        <div class="p-7 flex flex-col h-full">
+          <h3 class="text-xl font-semibold text-gray-700 mb-2">Filtrar comentários</h3>
+          <p class="text-gray-500 text-sm mb-6" id="auto-filter-info">Os resultados são atualizados automaticamente conforme você filtra.</p>
+          <form id="comments-filter-form" class="flex flex-col gap-y-5 flex-1">
+            <!-- Palavra-chave -->
+            <div id="filter-keyword" class="flex flex-col gap-y-2">
+              <label for="keyword" class="text-gray-600 font-medium text-sm mb-1">Palavra-chave</label>
+              <div class="relative">
+                <!-- Removido o ícone -->
+                <input id="keyword" name="keyword" type="text" placeholder="Buscar por palavra..." class="w-full bg-gray-50 rounded-md border border-[#e1e7ee] py-2.5 pl-3 pr-3 text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-[#5e9ed6] focus:border-[#5e9ed6] outline-none transition" />
+              </div>
+            </div>
+            <!-- Data (dropdown de intervalos) -->
+            <div id="filter-date" class="flex flex-col gap-y-2">
+              <label for="dateRange" class="text-gray-600 font-medium text-sm mb-1">Data</label>
+              <div class="relative">
+                <!-- Removido o ícone -->
+                <select id="dateRange" name="dateRange" class="w-full bg-white rounded-md border border-[#e1e7ee] py-2.5 pl-3 pr-3 text-gray-700 focus:ring-2 focus:ring-[#5e9ed6] focus:border-[#5e9ed6] outline-none appearance-none transition">
+                  <option value="">Todos os períodos</option>
+                  <option value="7">Últimos 7 dias</option>
+                  <option value="30">Últimos 30 dias</option>
+                  <option value="90">Últimos 3 meses</option>
+                  <option value="365">Último ano</option>
+                </select>
+              </div>
+            </div>
+            <!-- Tipo de serviço -->
+            <div id="filter-service-type" class="flex flex-col gap-y-2">
+              <label for="serviceType" class="text-gray-600 font-medium text-sm mb-1">Serviços Oferecidos</label>
+              <div class="relative">
+                <select id="serviceType" name="serviceType" class="w-full bg-white rounded-md border border-[#e1e7ee] py-2.5 pl-3 pr-10 text-gray-700 focus:ring-2 focus:ring-[#5e9ed6] focus:border-[#5e9ed6] outline-none appearance-none transition">
+                  <option value="">Todos os serviços</option>
+                  <!-- Opções dinâmicas via JS -->
+                </select>
+                <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                  <i class="fa-solid fa-chevron-down"></i>
+                </span>
+              </div>
+            </div>
+            <!-- Avaliação por estrelas -->
+            <div id="filter-rating" class="flex flex-col gap-y-2">
+  <label for="filter-rating" class="text-gray-600 font-medium text-sm mb-1">Avaliação</label>
+  <div class="flex gap-x-1.5 items-center">
+    <i class="fa-solid fa-paw text-gray-300 text-3xl cursor-pointer transition transform hover:scale-110 paw-icon" data-value="1"></i>
+    <i class="fa-solid fa-paw text-gray-300 text-3xl cursor-pointer transition transform hover:scale-110 paw-icon" data-value="2"></i>
+    <i class="fa-solid fa-paw text-gray-300 text-3xl cursor-pointer transition transform hover:scale-110 paw-icon" data-value="3"></i>
+    <i class="fa-solid fa-paw text-gray-300 text-3xl cursor-pointer transition transform hover:scale-110 paw-icon" data-value="4"></i>
+    <i class="fa-solid fa-paw text-gray-300 text-3xl cursor-pointer transition transform hover:scale-110 paw-icon" data-value="5"></i>
+  </div>
+  </div>
+            <!-- Mídia anexada -->
+            <div id="filter-media" class="flex items-center gap-x-2 pt-4">
+              <input type="checkbox" id="mediaAttached" name="mediaAttached" class="accent-[#f7943e] w-4 h-4 focus:ring-2 focus:ring-[#5e9ed6] transition" />
+              <label for="mediaAttached" class="text-gray-700 text-base select-none cursor-pointer leading-tight">Somente com imagem/vídeo</label>
+            </div>
+            <div class="mt-8 flex flex-col gap-y-3">
+              <button type="button" class="w-full bg-gray-50 hover:bg-gray-100 text-[#5e9ed6] font-semibold rounded-lg py-3 transition-colors shadow focus:outline-none">
+                Limpar filtros
+              </button>
+            </div>
+          </form>
+        </div>
+      </aside>
+    </div>
+  </div>
+  <!-- Footer Section -->
+  <footer class="bg-white/90 border-t border-gray-200 py-4 px-8 sticky bottom-0 rounded-t-2xl shadow-lg fade-in" id="footer">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+      <div class="flex items-center text-base justify-center mx-auto md:mx-0 w-fit mb-2 md:mb-0">
+        <span class="text-gray-500 hover:text-[#5e9ed6] mr-6 cursor-pointer transition-colors">Termos de Uso</span>
+        <span class="text-gray-500 hover:text-[#5e9ed6] mr-6 cursor-pointer transition-colors">Política de Privacidade</span>
+        <span class="text-gray-500 hover:text-[#5e9ed6] cursor-pointer transition-colors">Contato</span>
+      </div>
+      <div class="text-xs text-gray-400">
+        © 2025 AuValia - Todos os direitos reservados
+      </div>
+    </div>
+  </footer>
+    <script src="js/script.js"></script>
+    <script src="js/modal.js"></script>
+</body>
+</html>

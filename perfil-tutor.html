@@ -31,12 +31,20 @@
 
   <div class="perfil-header">
     <img class="foto-perfil" src="image/icon.jpg" alt="Foto de Clotilde Edineia" />
-    <div>
+    <div class="info-perfil">
       <h2>Clotilde Edineia</h2>
       <p>📍 Indaiatuba, SP</p>
+      <p>👩‍🦰 Mãe do Max e da Lola</p>
+      <p>📅 Membro desde jan/2024</p>
     </div>
-    <button class="btn-mensagem">Enviar mensagem</button>
+    <div class="botoes-perfil">
+      <button class="btn-mensagem">Enviar mensagem</button>
+      <button class="btn-editar" onclick="alert('Função de edição ainda não implementada')">
+        <i class="fa-solid fa-pen"></i> Editar perfil
+      </button>
+    </div>
   </div>
+  
 </header>
 
 
@@ -46,14 +54,14 @@
         <img src="image/bulldog.jpg" alt="Max" />
         <h3>Max</h3>
         <p>Bulldog Francês • 5 anos</p>
-        <p>Última consulta: 08/02/2025</p>
+        Médio • Sexo: M
         <button onclick="window.location.href='perfil-pet.html'">Ver Perfil</button>
       </div>
       <div class="pet-card">
         <img src="image/beagle.jpg" alt="Lola" />
         <h3>Lola</h3>
         <p>Beagle • 2 anos</p>
-        <p>Última consulta: 25/11/2025</p>
+        Pequeno • Sexo: F
         <button onclick="window.location.href='perfil-pet.html'">Ver Perfil</button>
       </div>
     </div>
@@ -108,5 +116,118 @@
     <a href="#">Termos de Uso</a> • <a href="#">Política de Privacidade</a> • <a href="#">Contato</a>
   </footer>
 
+  <!-- Modal de Visualização/Edição do Pet -->
+<div id="modalPet" class="modal hidden">
+  <div class="modal-content">
+    <button class="btn-fechar" onclick="fecharModal()">×</button>
+    <div class="modal-foto">
+      <img id="modalFoto" src="" alt="Foto do Pet">
+      <input type="file" id="inputFotoModal" accept="image/*" onchange="atualizarPreviewModal()" />
+    </div>
+    
+    <div class="modal-info">
+      <input type="text" id="modalNome" class="modal-input" />
+      <input type="text" id="modalRaca" class="modal-input" />
+      <input type="text" id="modalIdade" class="modal-input" />
+      <select id="modalSexo" class="modal-input">
+        <option value="M">Macho</option>
+        <option value="F">Fêmea</option>
+      </select>
+      <textarea id="modalComorbidades" class="modal-input" placeholder="Comorbidades..."></textarea>
+      <button class="btn-salvar" onclick="salvarEdicaoPet()">Salvar Alterações</button>
+    </div>
+  </div>
+</div>
+
+
+  <script>
+    const petsSalvos = JSON.parse(localStorage.getItem("pets")) || [];
+    const container = document.querySelector(".perfil-pets");
+  
+    petsSalvos.forEach((pet, index) => {
+      const div = document.createElement("div");
+      div.className = "pet-card";
+      div.innerHTML = `
+        <div class="img-wrapper">
+          <img src="${pet.foto}" alt="${pet.nome}" />
+          <i class="fa-solid fa-trash delete-icon" onclick="excluirPet(${index})" title="Excluir pet"></i>
+        </div>
+        <h3>${pet.nome}</h3>
+        <p>${pet.raca} • ${pet.idade} ${pet.idade == 1 ? 'ano' : 'anos'}</p>
+        ${pet.porte} • Sexo: ${pet.sexo}
+        <button onclick="abrirModalPet(${index})">Ver Perfil</button>
+      `;
+      container.appendChild(div);
+    });
+    
+    function excluirPet(index) {
+      if (confirm("Tem certeza que deseja excluir este pet?")) {
+        const pets = JSON.parse(localStorage.getItem("pets")) || [];
+        pets.splice(index, 1); // Remove o pet pelo índice
+        localStorage.setItem("pets", JSON.stringify(pets));
+        location.reload(); // Recarrega a página para atualizar os cards
+      }
+    }
+
+    function abrirModalPet(petIndex) {
+      const pets = JSON.parse(localStorage.getItem("pets")) || [];
+      const pet = pets[petIndex];
+    
+      // Preencher os campos
+      document.getElementById("modalFoto").src = pet.foto || "image/default.jpg";
+      document.getElementById("modalNome").value = pet.nome;
+      document.getElementById("modalRaca").value = pet.raca;
+      document.getElementById("modalIdade").value = pet.idade || "";
+      document.getElementById("modalSexo").value = pet.sexo;
+      document.getElementById("modalComorbidades").value = pet.comorbidades || "";
+    
+      document.getElementById("modalPet").dataset.index = petIndex;
+      document.getElementById("modalPet").classList.remove("hidden");
+    }
+    
+    function fecharModal() {
+      document.getElementById("modalPet").classList.add("hidden");
+    }
+    
+    function salvarEdicaoPet() {
+      const index = document.getElementById("modalPet").dataset.index;
+      const pets = JSON.parse(localStorage.getItem("pets")) || [];
+    
+      const novaFoto = document.getElementById("modalFoto").dataset.base64;
+    
+      pets[index] = {
+        ...pets[index],
+        nome: document.getElementById("modalNome").value,
+        raca: document.getElementById("modalRaca").value,
+        idade: document.getElementById("modalIdade").value,
+        sexo: document.getElementById("modalSexo").value,
+        comorbidades: document.getElementById("modalComorbidades").value,
+        foto: novaFoto || pets[index].foto  // só atualiza se mudou
+      };
+    
+      localStorage.setItem("pets", JSON.stringify(pets));
+      fecharModal();
+      window.location.reload();
+    }
+    
+
+    function atualizarPreviewModal() {
+      const file = document.getElementById("inputFotoModal").files[0];
+      const reader = new FileReader();
+    
+      reader.onload = function (event) {
+        document.getElementById("modalFoto").src = event.target.result;
+        document.getElementById("modalFoto").dataset.base64 = event.target.result;
+      };
+    
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    }
+    
+    
+    
+  </script>
+  
 </body>
 </html>

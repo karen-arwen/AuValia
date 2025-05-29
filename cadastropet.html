@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cadastro do Pet</title>
+  <link rel="icon" href="image/logo.png" type="image/png" />
   <link rel="stylesheet" href="cadastro.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,14 +18,16 @@
       <div class="upload-container">
         <label for="fotoPet" class="upload-label">
           <input type="file" id="fotoPet" accept="image/*" hidden />
-          <div class="image-placeholder">+</div>
+          <img id="previewImagem" class="image-placeholder" src="image/default.jpg" alt="Foto do pet" />
         </label>
-      </div>
+      </div>          
     </div>
 
     <div class="right">
-      <form>
+      <form id="formCadastroPet">
         <input type="text" placeholder="Nome do Pet" name="nome" required />
+        <input type="number" name="idade" placeholder="Idade (em anos)" min="0" required />
+
         <input type="text" placeholder="Raça" name="raca" required />
 
         <select name="porte" required>
@@ -49,7 +52,58 @@
       </button>
         </button>
       </form>
+<script>
+  let imagemBase64 = "";
+
+  document.getElementById("fotoPet").addEventListener("change", function () {
+    const file = this.files[0];
+    const preview = document.getElementById("previewImagem");
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        imagemBase64 = e.target.result;
+        preview.src = imagemBase64;
+      };
+
+      reader.readAsDataURL(file);
+    } else {
+      // Se o usuário apagar a imagem, volta pra padrão
+      imagemBase64 = "";
+      preview.src = "image/default.jpg";
+    }
+  });
+
+
+  document.getElementById("formCadastroPet").addEventListener("submit", function(e) {
+    e.preventDefault();
+  
+    const form = e.target;
+    const novoPet = {
+      nome: form.nome.value,
+      raca: form.raca.value,
+      porte: form.porte.value,
+      sexo: form.sexo.value,
+      idade: form.idade.value,
+      comorbidades: form.comorbidades.value,
+      foto: imagemBase64 !== "" ? imagemBase64 : "cachorro_generico.jpg"
+    };
+  
+    const pets = JSON.parse(localStorage.getItem("pets")) || [];
+    pets.push(novoPet);
+    localStorage.setItem("pets", JSON.stringify(pets));
+  
+    alert("Pet cadastrado com sucesso!");
+    window.location.href = "perfil-tutor.html";
+  });
+  
+
+      </script>
+      
     </div>
   </div>
+
+  
 </body>
 </html>

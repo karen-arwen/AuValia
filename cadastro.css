@@ -56,17 +56,16 @@
     cursor: pointer;
   }
   
- .image-placeholder {
-  width: 150px;   /* Ajuste conforme quiser */
-  height: 150px;
-  border: 2px dashed #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 48px;
-  color: #ccc;
-  cursor: pointer;
-}
+  .image-placeholder {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px dashed #ccc;
+    cursor: pointer;
+    display: block;
+  }
+  
 
   .right form {
     display: flex;
@@ -136,4 +135,13 @@
   .btn-wrapper:focus-within .btn-cadastrar {
     background: linear-gradient(90deg, #ffa726 60%, #ff7043 100%);
     box-shadow: 0 8px 24px rgba(255, 167, 38, 0.25);
+}
+
+.image-preview {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px dashed #999;
+  cursor: pointer;
 }

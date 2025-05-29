@@ -9,7 +9,7 @@
   <script defer src="script.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
       <p class="nome-auvalia">Au<span>Valia</span></p>
     </div>
 
-    <input type="text" class="campo-pesquisa" placeholder="🔍 Buscar pet shops, serviços..." />
+<input type="text" class="campo-pesquisa" placeholder="🔍 Buscar pet shops, serviços..." onkeydown="if(event.key==='Enter'){ alert('Busca ainda não implementada'); }" />
 
     <nav class="menu">
       <a href="#">Início</a>
@@ -62,34 +62,48 @@
       <h3>Histórico de Visitas</h3>
 
       <div class="estabelecimento">
-        <img src="image/petshop1.jpg" alt="PetCamp" />
-        <div>
-          <strong>PetCamp</strong>
-          <div class="avaliacao">⭐⭐⭐⭐</div>
-        </div>
-      </div>
-
-      <div class="estabelecimento">
-        <img src="image/petshop3.jpg" alt="Littleless" />
-        <div>
-          <strong>Littleless</strong>
-          <div class="avaliacao">⭐⭐</div>
-        </div>
-      </div>
-
-      <div class="estabelecimento">
         <img src="image/petshop2.webp" alt="PetZ" />
         <div>
-          <strong>PetZ</strong>
-          <div class="avaliacao">⭐⭐⭐⭐⭐</div>
+          <strong>PataShop</strong>
+          <div class="avaliacao">
+            <i class="fa-solid fa-paw"></i>
+            <i class="fa-solid fa-paw"></i>
+            <i class="fa-solid fa-paw"></i>
+            <i class="fa-solid fa-paw"></i>
+            <i class="fa-solid fa-paw"></i>
+          </div>
         </div>
       </div>
-    </div>
+
+      <div class="estabelecimento">
+        <img src="image/petshop3.jpg" alt="PetZ" />
+        <div>
+          <strong>PetZ</strong>
+          <div class="avaliacao">
+            <i class="fa-solid fa-paw"></i>
+            <i class="fa-solid fa-paw"></i>
+            <i class="fa-solid fa-paw"></i>
+            <i class="fa-solid fa-paw"></i>
+            <i class="fa-solid fa-paw"></i>
+          </div>
+        </div>
+      </div>
+      <div class="estabelecimento">
+        <img src="image/petshop1.jpg" alt="PetZ" />
+        <div>
+          <strong>LittleLess</strong>
+          <div class="avaliacao">
+            <i class="fa-solid fa-paw"></i>
+            <i class="fa-solid fa-paw"></i>
+            <i class="fa-solid fa-paw"></i>
+          </div>
+        </div>
+      </div>
   </div>
 
-  <div class="add-button">+</div>
+ <a href="cadastropet.html" class="add-button">+</a>
 
-  <footer>
+   <footer>
     © 2025 AuValia - Todos os direitos reservados<br />
     <a href="#">Termos de Uso</a> • <a href="#">Política de Privacidade</a> • <a href="#">Contato</a>
   </footer>

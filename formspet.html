@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro do Pet</title>
+  <link rel="stylesheet" href="forms.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <h1>CADASTRO DO PET</h1>
+      <div class="upload-container">
+        <label for="fotoPet" class="upload-label">
+          <input type="file" id="fotoPet" accept="image/*" hidden />
+          <div class="image-placeholder">+</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="right">
+      <form>
+        <input type="text" placeholder="Nome do Pet" name="nome" required />
+        <input type="text" placeholder="Raça" name="raca" required />
+
+        <select name="porte" required>
+          <option value="">Selecione o porte</option>
+          <option value="Pequeno">Pequeno</option>
+          <option value="Médio">Médio</option>
+          <option value="Grande">Grande</option>
+        </select>
+
+        <select name="sexo" required>
+          <option value="">Selecione o sexo</option>
+          <option value="M">Macho</option>
+          <option value="F">Fêmea</option>
+        </select>
+
+        <textarea name="comorbidades" placeholder="Comorbidades..."></textarea>
+
+        <div class="btn-wrapper">
+  <img src="image/cachorrinho2.png" alt="Cachorrinho" class="dog-icon" />
+  <button type="submit" class="btn-cadastrar">Cadastrar Pet</button>
+</div>
+      </button>
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

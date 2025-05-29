@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    font-family: "Poetsen One", sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-image: url(./image/fundoo1.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  
+  }
+  
+  .container {
+    display: flex;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(126, 189, 248, 0.1);
+    max-width: 900px;
+    width: 90%;
+    overflow: hidden;
+  }
+  
+  .left, .right {
+    flex: 1;
+    padding: 40px;
+  }
+  
+  .left {
+    background: #ffa726;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .left h1 {
+  margin-bottom: 30px;
+  color: #000000;
+  font-family: "Poetsen One", sans-serif;
+}
+
+  .upload-container {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+ .image-placeholder {
+  width: 150px;   /* Ajuste conforme quiser */
+  height: 150px;
+  border: 2px dashed #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+  .right form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  form input, form select, form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  form textarea {
+    resize: vertical;
+    height: 80px;
+  }
+  
+  .btn-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+    height: 70px;
+  }
+  
+  .dog-icon {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+    width: 70px;
+    height: auto;
+    transition: transform 0.3s cubic-bezier(.4,2,.6,1), filter 0.3s;
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  .btn-cadastrar {
+    position: relative;
+    background-color: #ffa726;
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    transition: background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 16px rgba(255, 167, 38, 0.15);
+  }
+  
+  .btn-wrapper:hover .dog-icon,
+  .btn-wrapper:focus-within .dog-icon {
+    transform: translateX(-50%) scale(1.15) rotate(-8deg);
+    filter: brightness(1.1) drop-shadow(0 4px 8px #ffa72655);
+  }
+  
+  .btn-wrapper:hover .btn-cadastrar,
+  .btn-wrapper:focus-within .btn-cadastrar {
+    background: linear-gradient(90deg, #ffa726 60%, #ff7043 100%);
+    box-shadow: 0 8px 24px rgba(255, 167, 38, 0.25);
+}

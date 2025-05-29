@@ -75,13 +75,14 @@ body {
 }
 
 .perfil-header {
-  margin-top: 20px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 15px;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  padding: 20px 0;
 }
+
 
 .foto-perfil {
   width: 60px;
@@ -116,6 +117,8 @@ body {
 }
 
 .perfil-pets {
+    justify-content: center;
+
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -128,6 +131,12 @@ body {
   border-radius: 20px;
   transition: transform 0.2s ease;
   width: 200px;
+  height: 350px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   text-align: center;
 }
 
@@ -135,7 +144,10 @@ body {
   border-radius: 50%;
   width: 100px;
   height: 100px;
+
   object-fit: cover;
+  margin-top: 20px;
+  
 }
 
 .pet-card button {
@@ -150,6 +162,11 @@ body {
   font-weight: bold;
   transition: background 0.3s;
 }
+.pet-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
 
 .pet-card button:hover {
   background-color: var(--cor-primaria);
@@ -172,29 +189,26 @@ body {
 .estabelecimento {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
-  border: 2px solid #ffe0b2;
-  padding: 10px;
+  background: #e6f0ff;
+  padding: 1rem;
   border-radius: 10px;
-  background-color: #fffaf5;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .estabelecimento img {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  border-radius: 8px;
+  width: 60px;
+  height: 60px;
   object-fit: cover;
+  border-radius: 10px;
+  margin-right: 1rem;
 }
 
-.estabelecimento strong::before {
-  content: "🏪 ";
+.avaliacao i {
+  color: #ffa552;
 }
 
-.avaliacao {
-  color: gold;
-  margin-top: 4px;
-}
+
 
 .add-button {
   position: fixed;
@@ -236,15 +250,25 @@ body {
   margin-top: auto;
 }
 
-.footer  a {
-  color: #ffa726;
+
+footer {
+      text-align: center;
+      font-size: 14px;
+      background-color: #fff3e0;
+      padding: 20px;
+      color: #000;
+      box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.1);
+      margin-top: auto;
+      width: 100%;
+      
+    }
+
+footer a {
+  color: #005fcb;
   text-decoration: none;
-  font-weight: 500;
+  margin: 0 0.3rem;
 }
 
-.footer  a:hover {
-  text-decoration: underline;
-}
 
 @media (max-width: 768px) {
   .container {
